@@ -7,7 +7,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Container, ProductTable, Total } from './styles';
-import { add } from '../../store/modules/cart/actions';
+import { addToCartRequest } from '../../store/modules/cart/actions';
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ export default function Cart() {
                     <MdAddCircleOutline
                       size={20}
                       color="#7159c1"
-                      onClick={() => dispatch(add(product))}
+                      onClick={() => dispatch(addToCartRequest(product))}
                     />
                   </button>
                 </div>

@@ -3,7 +3,7 @@ import { MdAddShoppingCart } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { api, hashGenerator } from '../../services/api';
 import { ProductList } from './styles';
-import { addRequest } from '../../store/modules/cart/actions';
+import { addToCartRequest } from '../../store/modules/cart/actions';
 
 export default function Home(props) {
   const [products, setProducts] = useState([]);
@@ -33,7 +33,10 @@ export default function Home(props) {
             alt={product.title}
           />
           <strong>{product.title}</strong>
-          <button type="button" onClick={() => dispatch(addRequest(product))}>
+          <button
+            type="button"
+            onClick={() => dispatch(addToCartRequest(product))}
+          >
             <div>
               <MdAddShoppingCart size={16} color="#FFF" />
               {product.prices[0].price ? `$ ${product.prices[0].price}` : 'OUT'}
